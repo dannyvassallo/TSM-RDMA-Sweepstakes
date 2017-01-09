@@ -1,5 +1,62 @@
-$orange: #f26649;
-$pink: #fff;
+$primaryText: rgb(112,35,7);
+$secondaryText: rgb(220,54,28);
+
+.primary-text{
+  color: $primaryText;
+}
+i.normal-text{
+  font-style: inherit;
+}
+.secondary-text{
+  color: $secondaryText;
+}
+#header{
+  background-image: url("/images/maddie_and_tae.png");
+  background-size: contain;;
+  background-repeat: no-repeat;
+  background-position: top center;
+  padding-top: 200px;
+}
+#star-row{
+  height: 20px;
+}
+.star{
+  background-image: url("/images/star.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 20px;
+}
+.rope{
+  background-image: url("/images/rope_tile.png");
+  background-size: contain;
+  background-repeat: repeat-x;
+  height: 10px;
+}
+#enter-list, #grand-prize-list{
+  list-style: none;
+}
+#enter-list>li{
+  color: $secondaryText;
+  font-size: 1.5rem; //fallback
+  font-weight: bold;
+}
+#grand-prize-list>li{
+  color: $primaryText;
+  font-size: 1.5rem; //fallback
+  font-weight: bold;
+  background-image: url(bullet.jpg);
+  background-repeat: no-repeat;
+  background-position: 0px 50%;
+  padding-left: 1.5rem;
+}
+#grand-prize-list>li:before {
+  content: ' \25CF';
+  font-size: 1.5rem; //fallback
+  line-height: 1.5rem;
+}
+
+
 
 #hidden_iframe{
   display: none;
@@ -20,7 +77,7 @@ html, body{
 #background, #content{
   // background-image: url('https://s3.amazonaws.com/myfangate.com/playitforward/stars.jpg'); /* Old browsers */
   // background-repeat: repeat;
-  background-color: #c12133;
+  background-color: rgb(248,224,185);
   // background: -moz-linear-gradient(top,  #fef4f6 0%, #f78ba0 100%); /* FF3.6-15 */
   // background: -webkit-linear-gradient(top,  #fef4f6 0%,#f78ba0 100%); /* Chrome10-25,Safari5.1-6 */
   // background: linear-gradient(to bottom,  #fef4f6 0%,#f78ba0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -94,20 +151,27 @@ html, body{
   text-decoration: underline;
 }
 .rules{
-  color: #fff;
+  color: rgb(112,35,7);
 }
 
 #contest{
   margin-top: 20px;
 }
-
+.terms{
+  font-family:'FuturaStd-CondensedBold';
+  text-transform: uppercase;
+  color: $primaryText;
+  a{
+    color: $primaryText !important;
+  }
+}
 #contest, #age-gate, #word-gate{
-  label, .terms{
+  label{
     font-family:'FuturaStd-CondensedBold';
     text-transform: uppercase;
-    color: #71d7d5;
+    color: $secondaryText;
     a{
-      color: #71d7d5
+      color: $secondaryText
     }
   }
   .error{
@@ -132,7 +196,7 @@ html, body{
     border-color: transparent;
   }
   .phone{
-    color: $pink;
+    color: $primaryText;
     text-transform: uppercase;
     font-family:'PlacardMT-Condensed';
   }
@@ -141,7 +205,7 @@ html, body{
 .form-control{
   border-radius: 20px;
   background-color: #fff;
-  border-color: #71d7d5;
+  border-color: #fff;
 }
 
 .error{
@@ -292,8 +356,8 @@ html, body{
   box-shadow: 0px 0px 41px 6px rgba(0,0,0,0.40);
 }
 
-.pink-text{
-  color: $pink !important;
+.primaryText{
+  color: $primaryText !important;
 }
 
 .margin-top{
@@ -327,10 +391,10 @@ html, body{
   }
 }
 
-.header-image{
-  padding-bottom: 20px;
-  z-index: 10;
-}
+// .header-image{
+//   padding-bottom: 20px;
+//   z-index: 10;
+// }
 
 .checkbox-wrap{
   label.error{
