@@ -42,7 +42,8 @@ $secondaryText: rgb(235,81,41);
 // entry and grand prize list style
 ul.styled-list, ul.styled-list>li{
   font-size: 1.75rem; //fallback
-  font-weight: bold;
+  font-weight: 500;
+  // font-weight: bold;
   font-family:'Ranger_Italic';
   list-style: none;
   margin-bottom: 0;
@@ -61,7 +62,7 @@ i.and-font{
 }
 // header font size for entry list
 #enter-list>.list-header{
-  font-size: 2.75rem !important;
+  font-size: 2.5rem !important;
 }
 // grand price list color
 #grand-prize-list, #grand-prize-list>li{
@@ -184,7 +185,7 @@ body{
   font-weight: lighter;
 }
 .rules{
-  color: rgb(112,35,7);
+  color: $primaryText;
 }
 
 #contest{
