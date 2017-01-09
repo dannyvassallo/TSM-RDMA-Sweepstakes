@@ -2,11 +2,13 @@
 title: Radio Disney Country - Cruising Into The Holidays
 ---
 <div id="background" class="blue-gradient"></div>
-
-<div class="container-fluid">
+<div class="container-fluid content">
   <%= partial 'partials/header' %>
-  <%= partial 'partials/prize' %>
+  <div id="content-container">
+    <%= partial 'partials/prize' %>
+    <div class="container">
+      <%= partial 'partials/contest' %>
+    </div>
+  </div>
 </div>
-<div class="container">
-  <%= partial 'partials/contest' %>
-</div>
+<%= partial 'partials/gate' %>

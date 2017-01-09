@@ -1,61 +1,89 @@
 $primaryText: rgb(112,35,7);
 $secondaryText: rgb(220,54,28);
 
+// text colors
 .primary-text{
-  color: $primaryText;
-}
-i.normal-text{
-  font-style: inherit;
+  color: $primaryText !important;
 }
 .secondary-text{
-  color: $secondaryText;
+  color: $secondaryText !important;
 }
-#header{
-  background-image: url("/images/maddie_and_tae.png");
-  background-size: contain;;
-  background-repeat: no-repeat;
-  background-position: top center;
-  padding-top: 200px;
+#sweepstakes-img{
+  margin-top: 10vw;
 }
-#star-row{
-  height: 20px;
+// Adjust content to fit header size and overlap slightly
+#content-container{
+  transform: translateY(-7.5%);
 }
+@media screen and (min-width: 500px){
+  #content-container{
+    transform: translateY(-10%) !important;
+  }
+}
+@media screen and (min-width: 600px){
+  #content-container{
+    transform: translateY(-12.5%) !important;
+  }
+}
+// star dividers
 .star{
-  background-image: url("/images/star.png");
+  background-image: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/star.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  height: 20px;
+  height: 25px;
+  margin: 20px 0;
 }
+// rope dividers
 .rope{
-  background-image: url("/images/rope_tile.png");
+  background-image: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/rope_tile.png");
   background-size: contain;
   background-repeat: repeat-x;
   height: 10px;
+  margin: 20px 0;
 }
-#enter-list, #grand-prize-list{
+// entry and grand prize list style
+ul.styled-list, ul.styled-list>li{
+  font-size: 1.75rem; //fallback
+  font-weight: bold;
+  font-family:'Ranger_Italic';
   list-style: none;
+  margin-bottom: 0;
 }
-#enter-list>li{
+// remove italic styling from <i> tag
+i.normal-text{
+  font-style: inherit;
+}
+// & <i> tag styling
+i.and-font{
+  font-family: 'FuturaStd-CondensedBold';
+}
+//set font color
+#enter-list, #enter-list>li{
   color: $secondaryText;
-  font-size: 1.5rem; //fallback
-  font-weight: bold;
 }
-#grand-prize-list>li{
+// header font size for entry list
+#enter-list>.list-header{
+  font-size: 2.75rem !important;
+}
+// grand price list color
+#grand-prize-list, #grand-prize-list>li{
   color: $primaryText;
-  font-size: 1.5rem; //fallback
-  font-weight: bold;
-  background-image: url(bullet.jpg);
-  background-repeat: no-repeat;
-  background-position: 0px 50%;
-  padding-left: 1.5rem;
 }
-#grand-prize-list>li:before {
-  content: ' \25CF';
-  font-size: 1.5rem; //fallback
-  line-height: 1.5rem;
+//header for grand price list
+#grand-prize-list>.list-header{
+  font-size: 3.5rem !important;
 }
-
+//dont display list custom style for header
+#grand-prize-list>.list-header::before{
+  display: none;
+}
+//custom list style
+#grand-prize-list>li:before{
+  content: '\25CF';
+  font-size: 1.25rem;
+  margin-right: .25rem;
+}
 
 
 #hidden_iframe{
@@ -75,9 +103,8 @@ html, body{
 }
 
 #background, #content{
-  // background-image: url('https://s3.amazonaws.com/myfangate.com/playitforward/stars.jpg'); /* Old browsers */
-  // background-repeat: repeat;
-  background-color: rgb(248,224,185);
+  // background-image: url('https://s3.amazonaws.com/myfangate.com/rdrodeo/background.png'); /* Old browsers */
+  // background-color: rgb(248,224,185);
   // background: -moz-linear-gradient(top,  #fef4f6 0%, #f78ba0 100%); /* FF3.6-15 */
   // background: -webkit-linear-gradient(top,  #fef4f6 0%,#f78ba0 100%); /* Chrome10-25,Safari5.1-6 */
   // background: linear-gradient(to bottom,  #fef4f6 0%,#f78ba0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -91,9 +118,17 @@ html, body{
   max-width: 1170px;
 }
 
+body{
+  background-image: url('https://s3.amazonaws.com/myfangate.com/rdrodeo/background.png'); /* Old browsers */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: top center;
+}
+
 #background{
   position: fixed;
-  height: 100%;
+  min-height: 100%;
   width: 100%;
   top: 0;
   bottom: 0;
@@ -148,7 +183,8 @@ html, body{
 .rules, .privacy-policy{
   font-family:'PlacardMT-Condensed';
   text-transform: uppercase;
-  text-decoration: underline;
+  text-decoration: none;
+  font-weight: lighter;
 }
 .rules{
   color: rgb(112,35,7);
@@ -175,7 +211,8 @@ html, body{
     }
   }
   .error{
-    color: red;
+    // color: red;
+    color: $secondaryText;
   }
   a{
     text-decoration: underline;
@@ -189,11 +226,14 @@ html, body{
     padding: 2% 0;
   }
   .disney-submit{
-    background: url("https://s3-us-west-2.amazonaws.com/rdcruising/enter-button.png") no-repeat scroll 0 0 transparent;
+    background: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/enter-button.png") no-repeat scroll 0 0 transparent;
     background-size: cover;
     width: 190px;
     height: 87px;
     border-color: transparent;
+  }
+  .disney-submit:focus{
+    outline: none;
   }
   .phone{
     color: $primaryText;
@@ -204,24 +244,30 @@ html, body{
 
 .form-control{
   border-radius: 20px;
-  background-color: #fff;
+  background-color: #fff !important;
   border-color: #fff;
 }
 
 .error{
-  color: red;
+  // color: red;
+  color: $secondaryText;
 }
 
 .content, #footer{
   display: none;
 }
-
+.again-button{
+  border: 6px solid $primaryText;
+  color: $primaryText;
+}
+.gate-btn{
+  border: 6px solid white;
+  color: white;
+}
 .again-button, .gate-btn{
   background-color: transparent;
-  border: 6px solid white;
   border-radius: 12px;
   text-transform: uppercase;
-  color: white;
   font-size: 30px;
   font-family:'FuturaStd-CondensedBold';
   padding: 0 14px;
@@ -230,11 +276,13 @@ html, body{
 #thankyou{
   font-family: 'PlacardMT-Condensed';
   text-transform: uppercase;
-  color: white;
+  color: $secondaryText;
 }
 
 // custom datepicker
-
+#birthday-input{
+  cursor: pointer;
+}
 .dtpicker-content{
   border-radius: 8px;
   box-shadow: 0px 0px 8px 7px rgba(0,0,0,0.2);
