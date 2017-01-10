@@ -2,7 +2,7 @@
 title: Radio Disney Country - Cruising Into The Holidays
 ---
 <div id="background" class="blue-gradient"></div>
-<div class="container-fluid content">
+<div class="container-fluid">
   <%= partial 'partials/header' %>
   <div id="content-container">
     <%= partial 'partials/prize' %>
@@ -11,4 +11,3 @@ title: Radio Disney Country - Cruising Into The Holidays
     </div>
   </div>
 </div>
-<%= partial 'partials/gate' %>
