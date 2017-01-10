@@ -1,5 +1,6 @@
 $primaryText: rgb(112,35,7);
 $secondaryText: rgb(235,81,41);
+$errorColor: $secondaryText;
 
 // text colors
 .primary-text{
@@ -7,20 +8,6 @@ $secondaryText: rgb(235,81,41);
 }
 .secondary-text{
   color: $secondaryText !important;
-}
-// Adjust content to fit header size and overlap slightly
-#content-container{
-  transform: translateY(-7.5%);
-}
-@media screen and (min-width: 500px){
-  #content-container{
-    transform: translateY(-10%) !important;
-  }
-}
-@media screen and (min-width: 600px){
-  #content-container{
-    transform: translateY(-12.5%) !important;
-  }
 }
 // star dividers
 .star{
