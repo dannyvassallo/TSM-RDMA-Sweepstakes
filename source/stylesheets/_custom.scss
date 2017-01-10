@@ -16,7 +16,6 @@ $errorColor: $secondaryText;
   background-repeat: no-repeat;
   background-position: center;
   height: 25px;
-  // margin: 20px 0;
   margin-bottom: 20px;
 }
 // rope dividers
@@ -195,6 +194,9 @@ body{
     a{
       color: $secondaryText
     }
+  }
+  label.error.valid{
+    display: none !important;
   }
   .error{
     // color: red;
