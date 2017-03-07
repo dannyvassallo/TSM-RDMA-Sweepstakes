@@ -205,11 +205,10 @@ $("#contest").validate({
   },
   success: "valid",
   submitHandler: function(form) {
-    formH = $('#contest').height();
     form.submit();
     $.growl.notice({ message: "Thanks! We've received your entry." });
     setTimeout(function(){
-      $('#contest').parent().html(successMsg).css('min-height', formH);
+      $('#contest').parent().html(successMsg);
       $('.entries, #details, #terms').remove();
     }, 500);
     setTimeout(function(){
