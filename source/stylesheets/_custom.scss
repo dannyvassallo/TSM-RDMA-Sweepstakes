@@ -96,6 +96,7 @@ body {
 
 
 .form-control, .form-control:focus {
+  -webkit-appearance: none;
   -webkit-box-shadow: -1px -1px 13px 2px $secondaryColor;
   -moz-box-shadow: -1px -1px 13px 2px $secondaryColor;
   box-shadow: -1px -1px 13px 2px $secondaryColor;
