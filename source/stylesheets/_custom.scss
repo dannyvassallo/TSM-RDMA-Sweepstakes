@@ -1,496 +1,137 @@
-$primaryText: rgb(112,35,7);
-$secondaryText: rgb(235,81,41);
-$errorColor: $secondaryText;
-
-// text colors
-.primary-text{
-  color: $primaryText !important;
-}
-.secondary-text{
-  color: $secondaryText !important;
-}
-// star dividers
-.star{
-  background-image: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/star.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 25px;
-  margin-bottom: 20px;
-}
-// rope dividers
-.rope{
-  background-image: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/rope_tile.png");
-  background-size: contain;
-  background-repeat: repeat-x;
-  height: 10px;
-  margin: 20px 0;
-}
-// entry and grand prize list style
-ul.styled-list, ul.styled-list>li{
-  font-size: 1.75rem; //fallback
-  font-weight: 500;
-  // font-weight: bold;
-  font-family:'Ranger_Italic';
-  list-style: none;
-  margin-bottom: 0;
-}
-// remove italic styling from <i> tag
-i.normal-text{
-  font-style: inherit;
-}
-// & <i> tag styling
-i.and-font{
-  font-family: 'FuturaStd-CondensedBold';
-}
-//set font color
-#enter-list, #enter-list>li{
-  color: $secondaryText;
-}
-// header font size for entry list
-#enter-list>.list-header{
-  font-size: 2.5rem !important;
-}
-// grand price list color
-#grand-prize-list, #grand-prize-list>li{
-  color: $primaryText;
-}
-//header for grand price list
-#grand-prize-list>.list-header{
-  font-size: 3.5rem !important;
-}
-//dont display list custom style for header
-#grand-prize-list>.list-header::before{
-  display: none;
-}
-//custom list style
-#grand-prize-list>li:before{
-  content: '\25CF';
-  font-size: 1.25rem;
-  margin-right: .25rem;
-}
+$errorColor: red;
+$termsTextColor: #fff;
 
 
-#hidden_iframe{
-  display: none;
-}
+$primaryColor: #14e0fe;
+$secondaryColor: #fa04fd;
+// Font
+$primaryFont: 'PlacardMT-Condensed';
+$secondaryFont: 'FuturaStd-CondensedBold';
+$whiteText: #fff;
+$formlabelColor: $primaryColor;
 
-.full-w{
-  width: 100%;
-}
-.pad-top{
-  padding-top: 4%;
-}
+// Amazon Web Server File Path
+$bucket: "RDMA-Sweepstakes/";
+$aws: "https://s3.amazonaws.com/myfangate.com/";
+
+
+
 html, body{
   min-height: 100%;
-  margin: 0px; /* Remove the margin around the body */
+  margin: 0px; // Remove the margin around the body
   overflow-x: hidden;
+  font-family: $primaryFont;
+  color: $primaryColor;
 }
-
-#background, #content{
-  // background-image: url('https://s3.amazonaws.com/myfangate.com/rdrodeo/background.png'); /* Old browsers */
-  // background-color: rgb(248,224,185);
-  // background: -moz-linear-gradient(top,  #fef4f6 0%, #f78ba0 100%); /* FF3.6-15 */
-  // background: -webkit-linear-gradient(top,  #fef4f6 0%,#f78ba0 100%); /* Chrome10-25,Safari5.1-6 */
-  // background: linear-gradient(to bottom,  #fef4f6 0%,#f78ba0 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  // filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fef4f6', endColorstr='#f78ba0',GradientType=0 ); /* IE6-9 */
-}
-
-#content{
-  // margin-left: 0;
-  // margin-right: 0;
-  width: 100%;
-  max-width: 1170px;
-}
-
-body{
-  background-image: url('https://s3.amazonaws.com/myfangate.com/rdrodeo/background.png'); /* Old browsers */
+body {
+  background-image: url($aws+$bucket+'background.png'); /* Old browsers */
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: scroll;
   background-position: top center;
 }
-
-#background{
-  position: fixed;
-  min-height: 100%;
-  width: 100%;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: -1;
-}
-
-// promo & footer
-
-#footer{
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  text-align: center;
-  background-color: #c12133;
-}
-
-.footer{
-  width: 100%;
-  position: relative;
-}
-
-@media only screen and (min-width : 320px) {
-  .promoimage{
-    width: 140%;
-    margin-left: -20%;
-    padding-top: 2%;
-  }
-  .footer{
-    right: -14%;
-  }
-}
-
-@media only screen and (min-width : 992px) {
-  .promoimage{
-    width: 100%;
-    margin-left: 0;
-    padding-top: 0;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-  .footer{
-    right: -45px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-}
-
-// contest
-
-.rules, .privacy-policy{
-  font-family:'PlacardMT-Condensed';
-  text-transform: uppercase;
-  text-decoration: none;
-  font-weight: lighter;
-}
-.rules{
-  color: $primaryText;
-}
-
-#contest{
+#header {
   margin-top: 20px;
 }
-.terms{
-  font-family:'FuturaStd-CondensedBold';
+
+.terms-text {
+  font-family: $secondaryFont;
   text-transform: uppercase;
-  color: $primaryText;
-  a{
-    color: $primaryText !important;
+  color: $termsTextColor;
+  text-align: center;
+  a {
+    color: $termsTextColor !important;
   }
 }
-#contest, #age-gate, #word-gate{
-  label{
-    font-family:'FuturaStd-CondensedBold';
+#terms {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  text-align: center;
+  h4 {
+    font-family: $secondaryFont;
+    color: $whiteText;
     text-transform: uppercase;
-    color: $secondaryText;
-    a{
-      color: $secondaryText
+    margin: 0 auto !important;
+  }
+}
+
+#contest, #age-gate, #word-gate{
+  label {
+    font-family: $secondaryFont;
+    text-transform: uppercase;
+    color: $formlabelColor;
+    a {
+      color: $formlabelColor;
     }
   }
-  label.error.valid{
+  label.error.valid {
     display: none !important;
   }
-  .error{
-    // color: red;
-    color: $secondaryText;
+  .error {
+    color: $errorColor;
   }
-  a{
+  a {
     text-decoration: underline;
-    color: #fff;
+    color: $whiteText;
   }
-  .disc{
-    color: white;
-    font-family:'FuturaStd-CondensedBold';
+  .disc {
+    color: $whiteText;
+    font-family: $secondaryFont;
   }
-  .submit-wrap{
+  .submit-wrap {
     padding: 2% 0;
   }
-  .disney-submit{
-    background: url("https://s3.amazonaws.com/myfangate.com/rdrodeo/enter-button.png") no-repeat scroll 0 0 transparent;
+  .disney-submit {
+    background: url($aws+$bucket+"enter-button.png") no-repeat scroll 0 0 transparent;
     background-size: cover;
+    background-position: center;
     width: 190px;
     height: 87px;
     border-color: transparent;
   }
-  .disney-submit:focus{
+  .disney-submit:focus {
     outline: none;
   }
-  .phone{
-    color: $primaryText;
-    text-transform: uppercase;
-    font-family:'PlacardMT-Condensed';
-  }
 }
 
-.form-control{
+
+.form-control, .form-control:focus {
+  -webkit-box-shadow: -1px -1px 13px 2px $secondaryColor;
+  -moz-box-shadow: -1px -1px 13px 2px $secondaryColor;
+  box-shadow: -1px -1px 13px 2px $secondaryColor;
   border-radius: 20px;
-  background-color: #fff !important;
-  border-color: #fff;
+  background-color: $whiteText !important;
+}
+.form-control {
+  border-color: $secondaryColor;
+}
+.form-control:focus {
+  border-color: $primaryColor;
 }
 
-.error{
-  // color: red;
-  color: $secondaryText;
+.error {
+  color: $errorColor;
 }
 
-.content, #footer{
-  display: none;
-}
-.again-button{
-  border: 6px solid $primaryText;
-  color: $primaryText;
+.again-button {
+  border: 6px solid $primaryColor;
+  color: $primaryColor;
 }
 .gate-btn{
-  border: 6px solid white;
-  color: white;
+  border: 6px solid $primaryColor;
+  color: $primaryColor;
 }
 .again-button, .gate-btn{
   background-color: transparent;
   border-radius: 12px;
   text-transform: uppercase;
   font-size: 30px;
-  font-family:'FuturaStd-CondensedBold';
+  font-family: $secondaryFont;
   padding: 0 14px;
 }
 
 #thankyou{
-  font-family: 'PlacardMT-Condensed';
+  font-family: $primaryFont;
   text-transform: uppercase;
-  color: $secondaryText;
+  color: $whiteText;
 }
-
-// custom datepicker
-#birthday-input{
-  cursor: pointer;
-}
-.dtpicker-content{
-  border-radius: 8px;
-  box-shadow: 0px 0px 8px 7px rgba(0,0,0,0.2);
-  font-family: 'PlacardMT-Condensed';
-  background-color: #f3f3f3 !important;
-}
-
-.dtpicker-button{
-  border-radius: 5px;
-}
-
-.dtpicker-compOutline{
-  border: 1px solid #ccc;
-  border-radius: 11px;
-  margin-left: 1.65% !important;
-  margin-right: 1.65% !important;
-  overflow: hidden;
-  background: #d3d3d3 !important;
-  background: -moz-linear-gradient(top,  #d3d3d3 15%, #ffffff 50%, #d3d3d3 85%) !important;
-  background: -webkit-linear-gradient(top,  #d3d3d3 15%,#ffffff 50%,#d3d3d3 85%) !important;
-  background: linear-gradient(top,  #d3d3d3 15%,#ffffff 50%,#d3d3d3 85%) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d3d3d3', endColorstr='#d3d3d3',GradientType=0 ) !important;
-}
-
-.dtpicker-comp3 {
-    width: 30% !important;
-}
-
-.increment, .decrement{
-  display: block;
-  text-decoration: none !important;
-  background-color: #E5E5E5 !important;
-  color: #333333 !important;
-  margin: 40px auto !important;
-  position: relative !important;
-  text-align: center !important;
-  text-shadow: 0 -1px 0 rgba(102, 102, 102, 0.5), 0 2px 1px rgba(255, 255, 255, 0.6) !important;
-  width: 110%;
-  margin-left: -5% !important;
-  text-decoration: none;
-}
-
-.increment{
-  margin-top: -5px !important;
-}
-.decrement{
-  margin-bottom: -4px !important;
-}
-
-.dtpicker-compValue{
-  color: black !important;
-  background-color: transparent !important;
-}
-
-.dtpicker-title, .dtpicker-close, .dtpicker-value{
-  color: black !important;
-}
-
-.dtpicker-buttonSet{
-  background-color: #3c9d3e !important;
-  text-transform: uppercase;
-}
-
-.dtpicker-buttonClear{
-  background-color: #c02133 !important;
-  text-transform: uppercase;
-  text-decoration: none;
-}
-
-.img-responsive{
-  margin: 0 auto;
-}
-
-.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12,
-.col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12,
-.col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12,
-.col-lg-1, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-10, .col-lg-11, .col-lg-12{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.contesting{
-  padding-left: 15px !important;
-  padding-right: 15px !important;
-}
-
-.entries{
-  h4{
-    font-family:'FuturaStd-CondensedBold';
-    // color: white !important;
-    text-transform: uppercase;
-    margin: 0 auto !important;
-  }
-  margin-top: 2%;
-  margin-bottom: 5%;
-}
-
-.container-fluid{
-  padding-left: 0 !important;
-  padding-right: 0 !important;
-}
-
-.prizing-image{
-  max-width: 700px;
-}
-
-.prizing-wrap{
-  border-top: 5px white solid;
-  border-bottom: 5px white solid;
-  text-align: center;
-  padding-top: 5% !important;
-  background-color: #c12133;
-  padding-bottom: 5% !important;
-  -webkit-box-shadow: inset 0px 0px 100px -20px rgba(0,0,0,0.75);
-  -moz-box-shadow: inset 0px 0px 100px -20px rgba(0,0,0,0.75);
-  box-shadow: inset 0px 0px 100px -20px rgba(0,0,0,0.75);
-  -webkit-box-shadow: 0px 0px 41px 6px rgba(0,0,0,0.40);
-  -moz-box-shadow: 0px 0px 41px 6px rgba(0,0,0,0.40);
-  box-shadow: 0px 0px 41px 6px rgba(0,0,0,0.40);
-}
-
-.primaryText{
-  color: $primaryText !important;
-}
-
-.margin-top{
-  line-height: 30px !important;
-}
-
-#age-gate{
-  label.error{
-    display: none !important;
-  }
-}
-
-#age-gate .error, #word-gate .error {
-  color: black !important;
-}
-
-// .blue-gradient{
-//   background: rgb(27,36,70); /* Old browsers */
-//   background: -moz-linear-gradient(45deg,  rgba(27,36,70,1) 0%, rgba(141,165,194,1) 100%); /* FF3.6-15 */
-//   background: -webkit-linear-gradient(45deg,  rgba(27,36,70,1) 0%,rgba(141,165,194,1) 100%); /* Chrome10-25,Safari5.1-6 */
-//   background: linear-gradient(45deg,  rgba(27,36,70,1) 0%,rgba(141,165,194,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-//   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b2446', endColorstr='#8da5c2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-// }
-
-.not-eligible{
-  color: white;
-  font-family:'PlacardMT-Condensed';
-  text-transform: uppercase;
-  span{
-    text-decoration: underline;
-  }
-}
-
-// .header-image{
-//   padding-bottom: 20px;
-//   z-index: 10;
-// }
-
-.checkbox-wrap{
-  label.error{
-    display: none !important;
-  }
-}
-
-.disney-checkbox {
-  width: 28px;
-  height: 28px;
-  position: relative;
-  margin: 20px auto;
-  background: #fff;
-  background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
-  border: 2px solid #ffdd56;
-  label.rd-check {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
-    position: absolute;
-    left: 2px;
-    top: 2px;
-    background: white;
-    // background: linear-gradient(top, #222 0%, #45484d 100%);
-    // box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
-    &:after {
-      content: '';
-      width: 9px;
-      height: 5px;
-      position: absolute;
-      top: 8px;
-      left: 6px;
-      border: 3px solid #000;
-      border-top: none;
-      border-right: none;
-      background: transparent;
-      opacity: 0;
-      transform: rotate(-45deg);
-    }
-  }
-  input[type=checkbox] {
-    visibility: hidden;
-    &:checked + label:after {
-      opacity: 1;
-    }
-  }
-}
-
-// @media screen and (max-width: 640px){
-//   .header-image{
-//     z-index: 10;
-//     position: relative;
-//     width: 130%;
-//     margin-left: -15%;
-//     margin-top: -16%;
-//     background: rgb(27,36,70); /* Old browsers */
-//     background: -moz-linear-gradient(45deg,  rgba(27,36,70,1) 0%, rgba(141,165,194,1) 100%); /* FF3.6-15 */
-//     background: -webkit-linear-gradient(45deg,  rgba(27,36,70,1) 0%,rgba(141,165,194,1) 100%); /* Chrome10-25,Safari5.1-6 */
-//     background: linear-gradient(45deg,  rgba(27,36,70,1) 0%,rgba(141,165,194,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-//     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1b2446', endColorstr='#8da5c2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-//   }
-// }

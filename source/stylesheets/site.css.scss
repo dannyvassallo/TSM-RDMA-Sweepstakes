@@ -1,9 +1,10 @@
 @charset "utf-8";
 @import "fonts";
-@import "normalize";
+@import "boilerplate/normalize";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import "jquery.growl";
+@import "boilerplate/jquery.growl";
 @import "custom";
-@import "DateTimePicker";
+@import "boilerplate/DateTimePicker";
+@import "boilerplate/custom";
